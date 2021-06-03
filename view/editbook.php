@@ -9,7 +9,7 @@ include("../controller/bookListingsController.php");
     Book ID:<br>
     <div name="book_id" ><?php echo $bookdetails['book_id'] ?><br>
     Path to Cover:<br>
-    <input type="text" name="path_to_cover" value="<?php echo $bookdetails['path_to_cover'] ?>"><br>
+    <input type="file" name="path_to_cover" value="<?php echo $bookdetails['path_to_cover'] ?>"><br>
     Publication Year:<br>
     <input type="text" name="publication_year" value="<?php echo $bookdetails['publication_year'] ?>"><br>
     Title:<br>
