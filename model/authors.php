@@ -4,10 +4,14 @@ class authors{
     Private $firstname;
     Private $lastname;
 
-    public function get_information( $author_id, $firstname, $lastname){
-        $this->author_id=$author_id;
+    public function get_information($author_id, $firstname, $lastname){
         $this->firstname=$firstname;
         $this->lastname=$lastname;
+        $this->author_id=$author_id;
+    }
+
+    public function authid($author_id){
+        $this->author_id=$author_id;
     }
 
     public function insert_author($pdo){
@@ -15,6 +19,15 @@ class authors{
         $stmt=$pdo->prepare($query);
         $stmt->bindParam(":fn", $this->firstname);
         $stmt->bindParam(":ln", $this->lastname);
+        $stmt->execute();
+    }
+
+    public function update_author($pdo){
+        $query = "UPDATE books SET firstname=:fn,lastname=:ln where author_id=:ai";
+        $stmt=$pdo->prepare($query);
+        $stmt->bindParam(":un", $this->username);
+        $stmt->bindParam(":fn", $this->firstname);
+        $stmt->bindParam(":ai", $this->author_id);
         $stmt->execute();
     }
 

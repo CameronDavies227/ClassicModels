@@ -6,17 +6,17 @@ if (isset($bookdata)) {
         $book_id;
         echo "<div class='listbooks'><ul>";
         foreach ($value as $k => $v) {
+            if ($k == 'book_id'){
+                $book_id = $v;
+                echo "Book ID: ".$value['book_id']."&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp";
+            }
             if ($k == 'path_to_cover'){
                 $book_id = $v;
-                echo "<div>Path to Cover: ".$value['path_to_cover']."&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp";
+                echo "Image: <img src={$value['path_to_cover']}>";
             }
             if ($k == 'publication_year'){
                 $book_id = $v;
                 echo "Year of Publication: ".$value['publication_year']."&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp";
-            }
-            if ($k == 'book_id'){
-                $book_id = $v;
-                echo "Book ID: ".$value['book_id']."&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp";
             }
             if ($k == 'title'){
                 $title = $v;
@@ -36,9 +36,13 @@ if (isset($bookdata)) {
                 echo "Copies of Book Sold: $copies_sold</div>";
             } 
         }
-        echo "<ul><a href='editbook.php/?book_id=$book_id'>Edit</a>&nbsp;&nbsp;";
-        echo "<a href='../controller/deletebookcontroller.php/?book_id=$book_id'>Delete</a></ul></div></ul>";
+        if($_SESSION['role'] == 'librarian'){
+            echo "<ul><a href='editbook.php/?book_id=$book_id'>Edit</a>&nbsp;&nbsp;";
+            echo "<a href='../controller/deletebookcontroller.php/?book_id=$book_id'>Delete</a></ul></ul>";
+        }
+        echo "</div>";
     }
+    
 }
 include "footerv.php";
 ?>

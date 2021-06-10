@@ -5,12 +5,13 @@ $conn = new connection;
 $pdo = $conn->connect_db();
 $user = new users;
     extract($_GET);
+    echo "I beg for death";
 
     try {
         $user->delete_user($pdo,$username);
 
-        header("../../view/displayuser.php?msg=RecordDeleted");
+        header("location: http://localhost/ClassicModels/view/displayuser.php?msg=RecordDeleted");
     } catch (exception $e) {
-        header("../../view/displayuser.php?msg=" . $e->getMessage());
+        header("location: http://localhost/ClassicModels/view/displayuser.php?msg=" . $e->getMessage());
     }
 ?>

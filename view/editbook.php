@@ -7,28 +7,30 @@ include("../controller/bookListingsController.php");
 <div id="contact-popup">
 <form action="../../controller/editbookcontroller.php" method="POST" id="contact-form" enctype="multipart/form-data">
     Book ID:<br>
-    <div name="book_id" ><?php echo $bookdetails['book_id'] ?><br>
+    <input id="invis" name="book_id" value=<?php echo $bookdetails['book_id'] ?>>
+    <style>#invis{display: none}</style>
+    <div ><?php echo $bookdetails['book_id'] ?><br></div>
     Path to Cover:<br>
-    <input type="file" name="path_to_cover" value="<?php echo $bookdetails['path_to_cover'] ?>"><br>
+    <input type="file" name="path_to_cover" value="<?php echo $bookdetails['path_to_cover'] ?>"required><br>
     Publication Year:<br>
-    <input type="text" name="publication_year" value="<?php echo $bookdetails['publication_year'] ?>"><br>
+    <input type="date" name="publication_year" value="<?php echo $bookdetails['publication_year'] ?>"required><br>
     Title:<br>
-    <input type="text" name="title" value="<?php echo $bookdetails['title'] ?>"><br>
+    <input type="text" name="title" value="<?php echo $bookdetails['title'] ?>"required pattern="[a-zA-Z]{2,}"><br>
     Author ID:<br>
     <select name="author_id">
         <option selected="selected" value="<?php echo $bookdetails['author_id'] ?>">
-            <?php $x=$bookdetails['author_id'];
-            print_r($x[0]);            ?></option>
+            <?php echo $authordetails['firstname']." ".$authordetails['lastname']." (".$authordetails['author_id'].")";
+            ?></option>
         <?php
-            foreach($authorids as $key=>$value){
-                $authid=$authorids[$key]['author_id'];
-                $authname=$authorids[$key]['firstname']." ".$authorids[$key]['lastname']." (".$authorids[$key]['author_id'].")";
-                echo "<option value='strtolower($authid)'>$authname</option>";
+            foreach($authordata as $key=>$value){
+                $authid=$authordata[$key]['author_id'];
+                $authname=$authordata[$key]['firstname']." ".$authordata[$key]['lastname']." (".$authordata[$key]['author_id'].")";
+                echo "<option value='$authid'>$authname</option>";
             }
         ?> 
     </select><br>
     Number of Copies Sold:<br>
-    <input type="text" name="copies_sold" value="<?php echo $bookdetails['copies_sold'] ?>"><br>
+    <input type="text" name="copies_sold" value="<?php echo $bookdetails['copies_sold'] ?>"required pattern="[0-9]{1,}"><br>
     <input type="submit" name="submit" value="Save">
 </form>
 <?php

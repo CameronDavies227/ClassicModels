@@ -15,11 +15,11 @@ if(isset($savebtn)){
         }*/
         $user->get_information($username, $firstname, $lastname, $password, $role);
         $user->update_user($pdo);
-        header("location:../view/userdisplay.php?msg=RecordSaved");
+        header("location:../view/displayuser.php?msg=RecordSaved");
     } catch (exception $e) {
-        header("location:../view/userdisplay.php?msg=" . $e->getMessage());
+        header("location:../view/displayuser.php?msg=" . $e->getMessage());
     }
 }else{
-    header("location:../view/userdisplay.php?msg=EditCancelled");
+    header("location:../view/displayuser.php?msg=EditCancelled");
 }
 ?>

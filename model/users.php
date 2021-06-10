@@ -101,6 +101,7 @@ class users{
                     //if credentials match, then create a session variable to store the infromation
                     session_start();
                 	$_SESSION['username'] = $row['username'];
+                    $_SESSION['role'] = $row['role'];
                 	header('Location:../view/displaybook.php');
                 	exit();
                 }else {

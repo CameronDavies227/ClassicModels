@@ -8,6 +8,17 @@ $book = new books;
 try {
     if (isset($_GET['book_id'])) {
         $bookdetails = $book->search_book_by_id($pdo, $_GET['book_id']);
+        $author = new authors;
+        try {
+            if (isset($bookdetails['author_id'])) {
+                $authordetails = $author->search_author_by_id($pdo, $bookdetails['author_id']);
+                $authordata = $author->display_all_authors($pdo);
+            } else {
+                $authordata = $author->display_all_authors($pdo);
+            }
+        } catch (exception $e) {
+            echo $e->getMessage();
+        }
     } else {
         $bookdata = $book->display_all_books($pdo);
     }
@@ -16,8 +27,9 @@ try {
 }
 $author = new authors;
 try {
-    if (isset($_GET['author_id'])) {
-        $authordetails = $author->search_author_by_id($pdo, $_GET['author_id']);
+    if (isset($bookdetails['author_id'])) {
+        $authordetails = $author->search_author_by_id($pdo, $bookdetails['author_id']);
+        $authordata = $author->display_all_authors($pdo);
     } else {
         $authordata = $author->display_all_authors($pdo);
     }

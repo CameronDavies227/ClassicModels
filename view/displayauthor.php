@@ -16,12 +16,14 @@ if (isset($authordata)) {
             }
             if ($k == 'lastname'){
                 $lastname = $v;
-                echo "Lastname: $lastname&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp";
+                echo "Lastname: $lastname</div>";
             }
         }
-        print_r($authordata); 
-        echo "<ul><a href='editauthor.php/?author_id=$author_id'>Edit</a>&nbsp;&nbsp;";
-        echo "<a href='../controller/deleteauthorcontroller.php/?author_id=$author_id'>Delete</a></ul></div></ul>";
+        if($_SESSION['role'] == 'librarian'){
+            echo "<ul><a href='editauthor.php/?author_id=$author_id'>Edit</a>&nbsp;&nbsp;";
+            echo "<a href='../controller/deleteauthorcontroller.php/?author_id=$author_id'>Delete</a></ul></ul>";
+        }
+        echo "</div>";
     }
 }
 include "footerv.php";

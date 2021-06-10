@@ -4,14 +4,16 @@ include "headerv.php";
 include "../controller/getbookidscontroller.php";
 ?>
 <form action="../controller/addbookcontroller.php" method="POST">
+    <input id="invis" name="book_id" value='book_id'>
+    <style>#invis{display: none}</style>
     Book Title:<br>
-    <input type="text" name="title" placeholder="Title"><br>
+    <input type="text" name="title" placeholder="Title" required pattern="[a-zA-Z]{3,}"><br>
     Number of Copies Sold:<br>
-    <input type="text" name="copies_sold" placeholder="Number Sold"><br>
+    <input type="text" name="copies_sold" placeholder="Number Sold" required pattern="[0-9]{1,}"><br>
     What Year was the Book Published:<br>
-    <input type="text" name="publication_year" placeholder="Publication Year"><br>
+    <input type="date" name="publication_year" placeholder="Publication Year" required><br>
     Cover Image:<br>
-    <input type="file" name="path_to_cover" placeholder="Path to the Cover Image"><br>
+    <input type="file" name="path_to_cover" placeholder="Path to the Cover Image" required><br>
     Author:<br>
     <select name="author_id">
         <option selected="selected">Please choose the relavent Author</option>
