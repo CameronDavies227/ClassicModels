@@ -1,12 +1,13 @@
 <?php
 include "../model/connection.php";
 include "../model/books.php";
+include("../controller/san_data.php");
 extract($_POST);
 $conn=new connection;
 $pdo=$conn->connect_db();
 $book=new books;
 
-try{
+try {
     if (isset($_FILES['path_to_cover'])){
         //print_r($_FILES['image_path']);
         //exit();         
@@ -18,6 +19,12 @@ try{
         $path_to_cover="http://localhost/ClassicModels/image/no_image.jpg";     
     }
     $book->get_information($path_to_cover,$publication_year,$book_id,$title,$author_id,$copies_sold);
+    $path_to_cover=test_input($path_to_cover);
+    $publication_year=test_input($publication_year);
+    $book_id=test_input($book_id);
+    $title=test_input($title);
+    $author_id=test_input($author_id);
+    $copies_sold=test_input($copies_sold);
     $book->insert_book($pdo);
     header("location:../view/addbook.php?msg=Saved");
 } catch(exception $e){

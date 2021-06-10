@@ -15,7 +15,7 @@ include("../controller/bookListingsController.php");
     Publication Year:<br>
     <input type="date" name="publication_year" value="<?php echo $bookdetails['publication_year'] ?>"required><br>
     Title:<br>
-    <input type="text" name="title" value="<?php echo $bookdetails['title'] ?>"required pattern="[a-zA-Z]{2,}"><br>
+    <input type="text" name="title" value="<?php echo $bookdetails['title'] ?>"required pattern="[a-zA-Z 0-9]{2,}"><br>
     Author ID:<br>
     <select name="author_id">
         <option selected="selected" value="<?php echo $bookdetails['author_id'] ?>">

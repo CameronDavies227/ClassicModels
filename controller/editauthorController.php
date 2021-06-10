@@ -1,6 +1,7 @@
 <?php
 include "../model/connection.php";
 include "../model/authors.php";
+include("../controller/san_data.php");
 $conn = new connection;
 $pdo = $conn->connect_db();
 $author = new authors;
@@ -13,6 +14,9 @@ try {
     $image_path="http://localhost:8084/ClassicModels/view/img/".$imageName;
     }*/
     $author->get_information($firstname, $author_id, $lastname);
+    $author_id=test_input($author_id);
+    $firstname=test_input($firstname);
+    $lastname=test_input($lastname);
     $author->update_author($pdo);
     header("location:../view/displayauthor.php?msg=RecordSaved");
 } catch (exception $e) {

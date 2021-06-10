@@ -10,9 +10,9 @@
         <form action="controller/checkCredentials.php" method="POST">
             <br>
             Username:<br>
-            <input type="text" name="username"><br><br>
+            <input type="text" name="username" required pattern="[0-9a-zA-Z-!@#$%^&*()?]{3,}"><br><br>
             Password:<br>
-            <input type="text" name="password"><br><br>
+            <input type="password" name="password" required pattern="[0-9a-zA-Z-!@#$%^&*()?]{3,}"><br><br>
             <input type="submit" value="Sign In"><br><br>
         </form><br>
         <?php

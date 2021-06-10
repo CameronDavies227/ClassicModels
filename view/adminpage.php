@@ -15,3 +15,9 @@ include "headerv.php";
         </nav>
     </body>
 </html>
+<?php
+if(isset($_GET['msg'])){
+    echo"<p>". $_GET['msg']. "</p>";
+}
+include "footerv.php";
+?>

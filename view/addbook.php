@@ -7,7 +7,7 @@ include "../controller/getbookidscontroller.php";
     <input id="invis" name="book_id" value='book_id'>
     <style>#invis{display: none}</style>
     Book Title:<br>
-    <input type="text" name="title" placeholder="Title" required pattern="[a-zA-Z]{3,}"><br>
+    <input type="text" name="title" placeholder="Title" required pattern="[a-zA-Z 9-0]{3,}"><br>
     Number of Copies Sold:<br>
     <input type="text" name="copies_sold" placeholder="Number Sold" required pattern="[0-9]{1,}"><br>
     What Year was the Book Published:<br>
