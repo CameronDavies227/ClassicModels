@@ -1,9 +1,9 @@
 
 <?php
-include "headerv.php";
+include "headerv_admin.php";
 include "../controller/getbookidscontroller.php";
 ?>
-<form action="../controller/addbookcontroller.php" method="POST">
+<form action="../controller/addbookcontroller.php" method="POST" enctype="multipart/form-data">
     <input id="invis" name="book_id" value='book_id'>
     <style>#invis{display: none}</style>
     Book Title:<br>

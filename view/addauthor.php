@@ -1,8 +1,8 @@
 
 <?php
-include "headerv.php";
+include "headerv_admin.php";
 ?>
-<form action="../controller/addauthorcontroller.php" method="POST">
+<form action="../controller/addauthorcontroller.php" method="POST" enctype="multipart/form-data">
     First Name:<br>
     <input type="text" name="firstname" placeholder="First Name" required pattern="[a-zA-Z]{3,}"><br>
     Last Name:<br>

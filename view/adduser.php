@@ -1,9 +1,9 @@
 
 <?php
-include "headerv.php";
+include "headerv_admin.php";
 include "../controller/getusernamecontroller.php";
 ?>
-<form action="../controller/addusercontroller.php" method="POST">
+<form action="../controller/addusercontroller.php" method="POST" enctype="multipart/form-data">
     User Name:<br>
     <input type="text" name="username" placeholder="Username" required pattern="[0-9a-zA-Z-!@#$%^&*()?]{3,}"><br>
     First Name:<br>

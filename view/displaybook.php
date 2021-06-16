@@ -33,7 +33,15 @@ if (isset($bookdata)) {
             }
             if ($k == 'copies_sold'){
                 $copies_sold = $v;
-                echo "Copies of Book Sold: $copies_sold</div>";
+                echo "Copies of Book Sold: $copies_sold&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp";
+            } 
+            if ($k == 'record_created'){
+                $record_created = $v;
+                echo "Time of Record Creation: $record_created&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp";
+            } 
+            if ($k == 'record_last_edited'){
+                $record_last_edited = $v;
+                echo "Time of Last Record Edit: $record_last_edited</div>";
             } 
         }
         if($_SESSION['role'] == 'librarian'){
