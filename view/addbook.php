@@ -13,7 +13,7 @@ include "../controller/getbookidscontroller.php";
     What Year was the Book Published:<br>
     <input type="date" name="publication_year" placeholder="Publication Year" required><br>
     Cover Image:<br>
-    <input type="file" name="path_to_cover" placeholder="Path to the Cover Image" required><br>
+    <input type="file" name="path_to_cover" placeholder="Path to the Cover Image"><br>
     Author:<br>
     <select name="author_id">
         <option selected="selected">Please choose the relavent Author</option>
