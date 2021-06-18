@@ -1,7 +1,7 @@
 <?php
 session_start();
 if(!($_SESSION['role'] == 'librarian')) {
-    header("Location:http://localhost/ClassicModels/index.php?msg=NotLoggedIn");
+    header("Location:http://localhost/ClassicModels/index.php?msg=NotAuthorized");
     exit();
 }
 ?>

@@ -1,5 +1,5 @@
 <?php
-include("headerv.php");
+include("headerv_admin.php");
 $book_id = $_GET['book_id'];
 $bookdetails = explode(',',$book_id);
 include("../controller/bookListingsController.php");

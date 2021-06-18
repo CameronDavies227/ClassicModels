@@ -1,5 +1,5 @@
 <?php
-include("headerv.php");
+include("headerv_admin.php");
 $author_id = $_GET['author_id'];
 $authordetails = explode(',',$author_id);
 include("../controller/authorListingsController.php");
